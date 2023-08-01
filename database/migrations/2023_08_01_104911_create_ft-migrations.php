@@ -9,10 +9,10 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function stringup(): void
+    public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->string('id',20)->primary()->nullable();
+            $table->integer('id')->primary()->nullable();
             $table->string('firstname', 256)->nullable();
             $table->string('lastname', 256)->nullable();
             $table->string('email', 256)->unique()->nullable();
@@ -23,14 +23,14 @@ return new class extends Migration
         });
 
         Schema::create('categories', function (Blueprint $table) {
-            $table->string('id',20)->primary()->nullable();
+            $table->integer('id')->primary()->nullable();
             $table->string('title', 256)->nullable();
             $table->longText('description')->nullable();
             $table->string('slug', 256)->nullable();
         });
 
         Schema::create('news', function (Blueprint $table) {
-            $table->string('id',20)->primary()->nullable();
+            $table->integer('id')->primary()->nullable();
             $table->string('title', 256)->nullable();
             $table->longText('content')->nullable();
             $table->string('slug', 256)->nullable();
