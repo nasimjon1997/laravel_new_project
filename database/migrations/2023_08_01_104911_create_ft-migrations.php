@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->integer('id')->primary()->nullable();
+            $table->Integer('id')->primary()->autoIncrement()->nullable();
             $table->string('firstname', 256)->nullable();
             $table->string('lastname', 256)->nullable();
             $table->string('email', 256)->unique()->nullable();
@@ -22,15 +22,8 @@ return new class extends Migration
             $table->string('password', 256)->nullable();
         });
 
-        Schema::create('categories', function (Blueprint $table) {
-            $table->integer('id')->primary()->nullable();
-            $table->string('title', 256)->nullable();
-            $table->longText('description')->nullable();
-            $table->string('slug', 256)->nullable();
-        });
-
         Schema::create('news', function (Blueprint $table) {
-            $table->integer('id')->primary()->nullable();
+            $table->Integer('id')->primary()->autoIncrement()->nullable();
             $table->string('title', 256)->nullable();
             $table->longText('content')->nullable();
             $table->string('slug', 256)->nullable();
@@ -50,6 +43,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users', 'categories', 'news');
+        Schema::dropIfExists('users', 'news');
     }
 };
