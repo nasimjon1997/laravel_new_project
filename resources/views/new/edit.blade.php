@@ -1,4 +1,4 @@
-@extends('post.layout')
+@extends('new.layout')
 
 @section('content')
     <div class="row">
@@ -38,7 +38,8 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="description" placeholder="Description"></textarea>
+                    <textarea class="form-control" style="height:150px" name="description"
+                              placeholder="Description"></textarea>
                 </div>
             </div>
 

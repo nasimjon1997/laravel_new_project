@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
-class PostController extends Controller
+class NewController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +16,9 @@ class PostController extends Controller
 
     public function index(): View
     {
-        $news = Post::orderBy('id', 'desc')->paginate(5);
+        $news = News::orderBy('id', 'desc')->paginate(5);
 
-        return view('post.index', compact('news'))
+        return view('new.index', compact('news'))
             ->with('i', (request()->input('page', 1) -1) * 5);
     }
 
@@ -28,7 +28,7 @@ class PostController extends Controller
 
     public function create(): View
     {
-        return view('post.create');
+        return view('new.create');
     }
 
     /**
@@ -48,7 +48,7 @@ class PostController extends Controller
             'modified' => 'required'
         ]);
 
-        Post::create($request->all());
+        News::create($request->all());
 
         return redirect()->route('news.index')->with('success','Post has been created successfully.');
     }
@@ -57,25 +57,25 @@ class PostController extends Controller
      * Display the specified resource.
      */
 
-    public function show(Post $post): View
+    public function show(News $news): View
     {
-        return view('post.show',compact('post'));
+        return view('new.show',compact('post'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
 
-    public function edit(Post $post): View
+    public function edit(News $news): View
     {
-        return view('post.edit',compact('post'));
+        return view('new.edit',compact('news'));
     }
 
     /**
      * Update the specified resource in storage.
      */
 
-    public function update(Request $request, Post $post): RedirectResponse
+    public function update(Request $request, News $news): RedirectResponse
     {
         $request->validate([
             'title' => 'required',
@@ -88,7 +88,7 @@ class PostController extends Controller
             'modified' => 'required'
         ]);
 
-        $post->update($request->all());
+        $news->update($request->all());
 
         return redirect()->route('news.index')
             ->with('success','Post Has Been updated successfully');
@@ -98,9 +98,9 @@ class PostController extends Controller
      * Remove the specified resource from storage.
      */
 
-    public function destroy(Post $post): RedirectResponse
+    public function destroy(News $news): RedirectResponse
     {
-        $post->delete();
+        $news->delete();
 
         return redirect()->route('news.index')
             ->with('success','Post has been deleted successfully');
