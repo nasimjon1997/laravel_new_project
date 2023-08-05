@@ -12,7 +12,7 @@ class User extends Model
      */
    public function post(): HasMany
     {
-        return $this->HasMany(Post::class);
+        return $this->HasMany(News::class);
     }
 }
 

@@ -37,8 +37,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="description"
-                              placeholder="Description"></textarea>
+                    <input type="text" name="content" class="form-control" placeholder="Content">
                 </div>
             </div>
 
@@ -51,8 +50,22 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Cid:</strong>
+                    <input type="number" name="cid" class="form-control" placeholder="Cid">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Uid:</strong>
+                    <input type="number" name="uid" class="form-control" placeholder="Uid">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Status:</strong>
-                    <select name="user_profile_color_2" required="required">
+                    <select name="status" required="required">
                         <option value="">Select value</option>
                         <option value="1">Published</option>
                         <option value="2">Draft</option>
@@ -60,9 +73,23 @@
                 </div>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Created:</strong>
+                    <input type="datetime-local" name="Created" class="form-control" placeholder="Created">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Modified:</strong>
+                    <input type="datetime-local" name="modified" class="form-control" placeholder="Modified">
+                </div>
+            </div>
+
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <input type="reset">
+                <input type="reset" class="btn btn-danger">
             </div>
         </div>
 

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->integer('id')->primary()->nullable();
+            $table->id()->primary()->autoIncrement()->nullable();
             $table->string('firstname', 256)->nullable();
             $table->string('lastname', 256)->nullable();
             $table->string('email', 256)->unique()->nullable();
@@ -23,14 +23,14 @@ return new class extends Migration
         });
 
         Schema::create('categories', function (Blueprint $table) {
-            $table->integer('id')->primary()->nullable();
+            $table->id()->primary()->autoIncrement()->nullable();
             $table->string('title', 256)->nullable();
             $table->longText('description')->nullable();
             $table->string('slug', 256)->nullable();
         });
 
         Schema::create('news', function (Blueprint $table) {
-            $table->increments('id')->nullable();
+            $table->increments('id')->primary()->autoIncrement()->nullable();
             $table->string('title', 256)->nullable();
             $table->longText('content')->nullable();
             $table->string('slug', 256)->nullable();
@@ -40,8 +40,8 @@ return new class extends Migration
             $table->dateTime('created')->nullable();
             $table->dateTime('modified')->nullable();
 
-            $table->foreign('cid')->references('id')->on('categories');
             $table->foreign('uid')->references('id')->on('users');
+            $table->foreign('cid')->references('id')->on('categories');
         });
     }
 

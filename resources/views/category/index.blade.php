@@ -8,6 +8,7 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
+                <input type="button" class="btn btn-primary" onclick="history.back();" value="Back"/>
             </div>
         </div>
     </div>
@@ -24,7 +25,6 @@
             <th>Title</th>
             <th>Description</th>
             <th>Slug</th>
-            <th width="280px">Action</th>
         </tr>
         @foreach ($categories as $category)
             <tr>

@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('news.update',$post->id) }}" method="POST">
+    <form action="{{ route('news.update',$news->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -31,22 +31,60 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Title:</strong>
-                    <input type="text" name="title" value="{{ $post->title }}" class="form-control" placeholder="Title">
+                    <input type="text" name="title" value="{{ $news->title }}" class="form-control" placeholder="Title">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Content:</strong>
-                    <textarea class="form-control" style="height:150px" name="description"
-                              placeholder="Description"></textarea>
+                    <input type="text" name="content" value="{{ $news->content }}" class="form-control" placeholder="Content">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Slug:</strong>
-                    <input type="text" name="slug" value="{{ $post->slug }}" class="form-control" placeholder="Slug">
+                    <input type="text" name="slug" value="{{ $news->slug }}" class="form-control" placeholder="Slug">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Cid:</strong>
+                    <input type="number" name="cid" value="{{ $news->cid }}" class="form-control" placeholder="Cid">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Uid:</strong>
+                    <input type="number" name="uid" value="{{ $news->uid }}" class="form-control" placeholder="Uid">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Status:</strong>
+                    <select name="status" required="required">
+                        <option value="">Select value</option>
+                        <option value="1">Published</option>
+                        <option value="2">Draft</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Created:</strong>
+                    <input type="datetime-local" name="created" value="{{ $news->created }}" class="form-control" placeholder="Created">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <strong>Modified:</strong>
+                    <input type="datetime-local" name="modified" value="{{ $news->modified }}" class="form-control" placeholder="Modified">
                 </div>
             </div>
 

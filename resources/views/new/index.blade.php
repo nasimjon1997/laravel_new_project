@@ -8,6 +8,7 @@
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('news.create') }}"> Create New Post</a>
+                <input type="button" class="btn btn-primary" onclick="history.back()" value="Back">
             </div>
         </div>
     </div>
@@ -21,33 +22,32 @@
     <table class="table table-bordered">
         <tr>
             <th>№</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Slug</th>
+            <th class="col-xs-1 col-sm-1 col-md-1">Title</th>
+            <th class="col-xs-3 col-sm-3 col-md-3">Content</th>
+            <th class="col-xs-1 col-sm-1 col-md-1">Slug</th>
             <th>Cid</th>
             <th>Uid</th>
-            <th>Status</th>
-            <th>Created</th>
-            <th>Modified</th>
-            <th width="280px">Action</th>
+            <th class="col-xs-1 col-sm-1 col-md-1">Status</th>
+            <th class="col-xs-1 col-sm-1 col-md-1">Created</th>
+            <th class="col-xs-1 col-sm-1 col-md-1">Modified</th>
         </tr>
-        @foreach ($news as $post)
+        @foreach ($news as $new)
             <tr>
                 <td>{{ ++$i }}</td>
-                <td>{{ $post->title }}</td>
-                <td>{{ $post->dcontent }}</td>
-                <td>{{ $post->slug }}</td>
-                <td>{{ $post->cid }}</td>
-                <td>{{ $post->uid }}</td>
-                <td>{{ $post->status }}</td>
-                <td>{{ $post->created }}</td>
-                <td>{{ $post->modified }}</td>
+                <td>{{ $new->title }}</td>
+                <td>{{ $new->content }}</td>
+                <td>{{ $new->slug }}</td>
+                <td>{{ $new->cid }}</td>
+                <td>{{ $new->uid }}</td>
+                <td>{{ $new->status }}</td>
+                <td>{{ $new->created }}</td>
+                <td>{{ $new->modified }}</td>
                 <td>
-                    <form action="{{ route('news.destroy',$post->id) }}" method="POST">
+                    <form action="{{ route('news.destroy',$new->id) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('news.show',$post->id) }}">Show</a>
+                        <a class="btn btn-info" href="{{ route('news.show',$new->id) }}">Show</a>
 
-                        <a class="btn btn-primary" href="{{ route('news.edit',$post->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('news.edit',$new->id) }}">Edit</a>
 
                         @csrf
                         @method('DELETE')
