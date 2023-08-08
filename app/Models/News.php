@@ -10,6 +10,9 @@ class News extends Model
 {
     use HasFactory;
 
+    const CREATED_AT = 'created';
+    const UPDATED_AT = 'modified';
+
     protected $fillable = [
         'title',
         'content',
@@ -19,10 +22,6 @@ class News extends Model
         'status',
         'created',
         'modified'];
-    protected $dateFormat = 'U';
-
-    const CREATED_AT = 'created';
-    const UPDATED_AT = 'modified';
 
     public function post(): BelongsTo
     {

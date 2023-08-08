@@ -28,7 +28,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Slug:</strong>
-                {{ $news->slug }}
+                {{ $new_str = str_replace(" ", '_', $news->title) }}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -47,18 +47,6 @@
             <div class="form-group">
                 <strong>Status:</strong>
                 {{ $news->status }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Created:</strong>
-                {{ $news->created }}
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Modified:</strong>
-                {{ $news->modified }}
             </div>
         </div>
     </div>

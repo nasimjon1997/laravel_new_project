@@ -9,7 +9,7 @@
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('categories.create') }}"> Create New Category</a>
                 <input type="button" class="btn btn-primary" onclick="history.back();" value="Back"/>
-            </div>
+                <a  type="button" class="btn btn-warning" href="{{ url('/') }}">Main Page</a>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $category->title }}</td>
                 <td>{{ $category->description }}</td>
-                <td>{{ $category->slug }}</td>
+                <td>{{ $new_str = str_replace(" ", '_', $category->title) }}</td>
                 <td>
                     <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
 

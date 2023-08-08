@@ -38,14 +38,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Description:</strong>
-                    <input type="text" name="description" value="{{ $category->description }}" class="form-control" placeholder="Description">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Slug:</strong>
-                    <input type="text" name="slug" value="{{ $category->slug }}" class="form-control" placeholder="Slug">
+                    <textarea class="form-control" style="height:150px" name="description" placeholder="Description">{{ $category->description }}</textarea>
                 </div>
             </div>
 

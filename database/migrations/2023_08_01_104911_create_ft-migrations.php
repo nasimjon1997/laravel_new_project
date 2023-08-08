@@ -26,19 +26,20 @@ return new class extends Migration
             $table->id()->primary()->autoIncrement()->nullable();
             $table->string('title', 256)->nullable();
             $table->longText('description')->nullable();
-            $table->string('slug', 256)->nullable();
+            $table->string('slug', 256)->unique()->nullable();
         });
 
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id')->primary()->autoIncrement()->nullable();
             $table->string('title', 256)->nullable();
             $table->longText('content')->nullable();
-            $table->string('slug', 256)->nullable();
+            $table->string('slug', 256)->unique()->nullable();
             $table->integer('cid')->nullable();
             $table->integer('uid')->nullable();
             $table->string('status', 20)->nullable();
             $table->dateTime('created')->nullable();
             $table->dateTime('modified')->nullable();
+            $table->timestamps();
 
             $table->foreign('uid')->references('id')->on('users');
             $table->foreign('cid')->references('id')->on('categories');
@@ -53,3 +54,9 @@ return new class extends Migration
         Schema::dropIfExists('users', 'categories', 'news');
     }
 };
+
+class Flight extends Model
+{
+    const CREATED_AT = 'creation_date';
+    const UPDATED_AT = 'updated_date';
+}

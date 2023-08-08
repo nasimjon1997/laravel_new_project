@@ -37,14 +37,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Description:</strong>
-                    <input type="text" name="description"  class="form-control" placeholder="Description">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Slug:</strong>
-                    <input type="text" name="slug" class="form-control" placeholder="Slug">
+                    <textarea type="text" name="description" class="form-control" placeholder="Description"></textarea>
                 </div>
             </div>
 

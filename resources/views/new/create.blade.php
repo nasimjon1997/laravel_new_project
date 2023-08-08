@@ -37,21 +37,18 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Content:</strong>
-                    <input type="text" name="content" class="form-control" placeholder="Content">
+                    <textarea type="text" name="content" class="form-control" placeholder="Content"></textarea>
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Slug:</strong>
-                    <input type="text" name="slug" class="form-control" placeholder="Slug">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div type="button" class="btn btn-primary">
                     <strong>Cid:</strong>
-                    <input type="number" name="cid" class="form-control" placeholder="Cid">
+                    <select class="btn btn-info" name="cid">
+                        @foreach($data as $row)
+                            <option value="{{ $row->id }}">{{ $row->title }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
 
@@ -63,27 +60,12 @@
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
+                <div type="button" class="btn btn-primary">
                     <strong>Status:</strong>
-                    <select name="status" required="required">
-                        <option value="">Select value</option>
-                        <option value="1">Published</option>
-                        <option value="2">Draft</option>
+                    <select class="btn btn-info" name="status" required="required">
+                        <option>Published</option>
+                        <option>Draft</option>
                     </select>
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Created:</strong>
-                    <input type="datetime-local" name="Created" class="form-control" placeholder="Created">
-                </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Modified:</strong>
-                    <input type="datetime-local" name="modified" class="form-control" placeholder="Modified">
                 </div>
             </div>
 

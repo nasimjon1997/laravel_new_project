@@ -28,7 +28,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Slug:</strong>
-                {{ $category->slug }}
+                {{ $new_str = str_replace(" ", '_', $category->title) }}
             </div>
         </div>
     </div>

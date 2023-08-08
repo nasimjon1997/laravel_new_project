@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 
@@ -40,8 +41,9 @@ class CategoryController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'slug' => 'required',
+            'slug' => '',
         ]);
+
 
         Category::create($request->all());
 
@@ -75,7 +77,7 @@ class CategoryController extends Controller
         $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'slug' => 'required',
+            'slug' => '',
         ]);
 
         $category->update($request->all());
@@ -96,3 +98,4 @@ class CategoryController extends Controller
             ->with('success','Category has been deleted successfully');
     }
 }
+

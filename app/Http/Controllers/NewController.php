@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\News;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Http\Request;
@@ -30,7 +31,8 @@ class NewController extends Controller
 
     public function create(): View
     {
-        return view('new.create');
+        $data = Category::all();
+        return view('new.create',['data'=>$data]);
     }
 
     /**
@@ -42,15 +44,15 @@ class NewController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'slug' => 'required',
+            'slug' => '',
             'cid' => 'required',
             'uid' => 'required',
-            'status' => '',
-            'created' => '',
-            'modified' => ''
+            'status' => 'required',
+            'timestamps' => ''
         ]);
 
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
+
         News::create($request->all());
 
         return redirect()->route('news.index')->with('success','Post has been created successfully.');
@@ -71,7 +73,8 @@ class NewController extends Controller
 
     public function edit(News $news): View
     {
-        return view('new.edit',compact('news'));
+        $data = Category::all();
+        return view('new.edit',['data'=>$data],compact('news'));
     }
 
     /**
@@ -83,12 +86,11 @@ class NewController extends Controller
         $request->validate([
             'title' => 'required',
             'content' => 'required',
-            'slug' => 'required',
+            'slug' => '',
             'cid' => 'required',
             'uid' => 'required',
-            'status' => '',
-            'created' => '',
-            'modified' => ''
+            'status' => 'required',
+            'timestamps' => ''
         ]);
 
         $news->update($request->all());
@@ -109,4 +111,4 @@ class NewController extends Controller
     }
 }
 
-DB::statement('SET FOREIGN_KEY_CHECKS=1');
+    DB::statement('SET FOREIGN_KEY_CHECKS=1');

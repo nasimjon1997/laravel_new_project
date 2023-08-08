@@ -9,6 +9,7 @@
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('news.create') }}"> Create New Post</a>
                 <input type="button" class="btn btn-primary" onclick="history.back()" value="Back">
+                <a type="button" class="btn btn-warning" href="{{ url('/') }}">Main Page</a>
             </div>
         </div>
     </div>
@@ -36,7 +37,7 @@
                 <td>{{ ++$i }}</td>
                 <td>{{ $new->title }}</td>
                 <td>{{ $new->content }}</td>
-                <td>{{ $new->slug }}</td>
+                <td>{{ $new_str = str_replace(" ", '_', $new->title) }}</td>
                 <td>{{ $new->cid }}</td>
                 <td>{{ $new->uid }}</td>
                 <td>{{ $new->status }}</td>
