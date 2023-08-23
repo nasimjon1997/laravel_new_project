@@ -12,6 +12,8 @@
                 <a  type="button" class="btn btn-warning" href="{{ url('/') }}">Main Page</a>
         </div>
     </div>
+    </div>
+    <br>
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -19,11 +21,12 @@
         </div>
     @endif
 
+
     <table class="table table-bordered">
         <tr>
             <th>№</th>
             <th>Title</th>
-            <th>Description</th>
+            <th class="col-xs-6 col-sm-6 col-md-6">Description</th>
             <th>Slug</th>
         </tr>
         @foreach ($categories as $category)
@@ -48,5 +51,5 @@
             </tr>
         @endforeach
     </table>
-    {!! $categories->links() !!}
+    {{ $categories->withQueryString()->links() }}
 @endsection

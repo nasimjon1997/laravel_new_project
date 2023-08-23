@@ -4,7 +4,7 @@
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Laravel 10 CRUD/post</h2>
+                <h2>Laravel 10 CRUD</h2>
             </div>
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('news.create') }}"> Create New Post</a>
@@ -13,6 +13,7 @@
             </div>
         </div>
     </div>
+    <br>
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -39,7 +40,7 @@
                 <td>{{ $new->content }}</td>
                 <td>{{ $new_str = str_replace(" ", '_', $new->title) }}</td>
                 <td>{{ $new->cid }}</td>
-                <td>{{ $new->uid }}</td>
+                <td>1</td>
                 <td>{{ $new->status }}</td>
                 <td>{{ $new->created }}</td>
                 <td>{{ $new->modified }}</td>
@@ -59,5 +60,5 @@
             </tr>
         @endforeach
     </table>
-    {!! $news->links() !!}
+    {{ $news->withQueryString()->links() }}
 @endsection

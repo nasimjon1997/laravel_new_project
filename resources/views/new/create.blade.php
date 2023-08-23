@@ -55,7 +55,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Uid:</strong>
-                    <input type="number" name="uid" class="form-control" placeholder="Uid">
+                    <input type="number" disabled name="uid" class="form-control" placeholder="1">
                 </div>
             </div>
 
@@ -77,5 +77,4 @@
 
 
     </form>
-
 @endsection

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\News;
-use Database\Seeders\DatabaseSeeder;
+use App\Filters\PostFilter;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -17,12 +17,12 @@ class NewController extends Controller
      * Display a listing of the resource.
      */
 
-    public function index(): View
+    public function index(Request $request): View
     {
-        $news = News::orderBy('id', 'desc')->paginate(5);
+        $news = News::latest()->paginate(10);
 
         return view('new.index', compact('news'))
-            ->with('i', (request()->input('page', 1) -1) * 5);
+            ->with('i', (request()->input('page', 1) -1) * 10);
     }
 
     /**
@@ -46,7 +46,7 @@ class NewController extends Controller
             'content' => 'required',
             'slug' => '',
             'cid' => 'required',
-            'uid' => 'required',
+            'uid' => '',
             'status' => 'required',
             'timestamps' => ''
         ]);
@@ -88,7 +88,7 @@ class NewController extends Controller
             'content' => 'required',
             'slug' => '',
             'cid' => 'required',
-            'uid' => 'required',
+            'uid' => '',
             'status' => 'required',
             'timestamps' => ''
         ]);
@@ -111,4 +111,4 @@ class NewController extends Controller
     }
 }
 
-    DB::statement('SET FOREIGN_KEY_CHECKS=1');
+

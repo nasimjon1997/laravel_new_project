@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Model
@@ -10,9 +11,9 @@ class User extends Model
     /**
      * Get the user that owns the phone.
      */
-   public function post(): HasMany
+   public function category(): BelongsToMany
     {
-        return $this->HasMany(News::class);
+        return $this->belongsToMany(Category::class, 'news', 'user.id', 'category.id');
     }
 }
 

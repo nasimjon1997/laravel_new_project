@@ -45,10 +45,6 @@ return new class extends Migration
             $table->foreign('cid')->references('id')->on('categories');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users', 'categories', 'news');

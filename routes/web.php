@@ -6,6 +6,8 @@ use App\Http\Controllers\CategoryController;
 
 use App\Http\Controllers\NewController;
 
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +23,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/add-posts', [PostController::class, 'addPost'])->name('posts.addpost');
 Route::resource('categories', CategoryController::class);
 
+Route::get('/news.show', [NewController::class, 'show'])->name('news.show');
 Route::resource('news', NewController::class);
 
+Route::resource('posts', PostController::class);
