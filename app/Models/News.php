@@ -10,10 +10,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Database\Eloquent\Builder;
 
-class News1 extends Pivot
-{
-    //
-}
 class News extends Model
 {
     use HasFactory;
@@ -39,8 +35,8 @@ class News extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function posts(): BelongsToMany
+    public function category(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class, 'cid'.'id);
     }
 }
